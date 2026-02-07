@@ -3,6 +3,14 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addAuthor, editAuthor, fetchAuthors } from "../services/AuthorService";
 import Spinner from "../components/Spinner";
+const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+    });
+};
 
 export default function AuthorForm() {
     const navigate = useNavigate();
@@ -25,7 +33,7 @@ export default function AuthorForm() {
                         nombre: found.nombre,
                         biografia: found.biografia,
                         fecha_nacimiento: found.fecha_nacimiento,
-                        foto: found.foto, 
+                        imagen: found.imagen,
                     });
                 }
             }).finally(() => setLoading(false));
@@ -35,8 +43,8 @@ export default function AuthorForm() {
     const handleChange = (e) => {
         const { name, value, files } = e.target;
 
-        if (name === "foto") {
-            setAuthorData({ ...authorData, foto: files[0] });
+        if (name === "imagen") {
+            setAuthorData({ ...authorData, imagen: files[0] });
         } else {
             setAuthorData({ ...authorData, [name]: value });
         }
@@ -46,11 +54,16 @@ export default function AuthorForm() {
         e.preventDefault();
         setLoading(true);
         try {
+            let dataToSend = { ...authorData };
+
+            if (authorData.imagen && authorData.imagen instanceof File) {
+                dataToSend.imagen = await fileToBase64(authorData.imagen);
+            }
             if (id) {
-                await editAuthor(id, authorData);
+                await editAuthor(id, dataToSend);
                 alert("Autor editado exitosamente");
             } else {
-                await addAuthor(authorData);
+                await addAuthor(dataToSend);
                 alert("Autor agregado exitosamente");
             }
             navigate("/");
@@ -101,7 +114,7 @@ export default function AuthorForm() {
 
                 <Typography variant="body1">Foto del Autor:</Typography>
                 <input
-                    name="foto"
+                    name="imagen"
                     type="file"
                     accept="image/*"
                     onChange={handleChange}

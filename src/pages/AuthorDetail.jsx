@@ -35,14 +35,14 @@ export default function AuthorDetail() {
   return (
     <Box sx={{ mt: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Card sx={{ maxWidth: 600, width: '100%', boxShadow: 3 }}>
-        {author.foto && (
+        {author.imagen && (
           <CardMedia
             component="img"
             height="400"
             image={
-              author.foto.startsWith("data:") || author.foto.startsWith("http")
-                ? author.foto
-                : `${MEDIA_URL}/${author.foto}`
+              author.imagen.startsWith("data:") || author.imagen.startsWith("http")
+                ? author.imagen
+                : `${MEDIA_URL}/${author.imagen}`
             }
             alt={author.nombre}
             sx={{ objectFit: 'cover' }}

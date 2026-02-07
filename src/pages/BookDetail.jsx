@@ -57,8 +57,8 @@ export default function BookDetail() {
               {book.fecha_publicacion || "Desconocida"}
             </Typography>
 
-            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 1 }}>ID del Autor:</Typography>
-            <Typography variant="body1">{book.autor}</Typography>
+            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mt: 1 }}>Nombre del Autor:</Typography>
+            <Typography variant="body1">{book.autor_nombre}</Typography>
           </CardContent>
           
           <Box sx={{ p: 2, mt: 'auto' }}>

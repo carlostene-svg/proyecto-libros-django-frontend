@@ -12,14 +12,18 @@ axios.interceptors.request.use((config) => {
 });
 
 /* Convertir un archivo a Base64*/
-function fileToBase64(file) {
+const fileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
+        if (!(file instanceof Blob)) {
+            resolve(file); 
+            return;
+        }
         const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
         reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
     });
-}
+};
 
 /*Obtener la lista de autores*/
 export async function fetchAuthors() {

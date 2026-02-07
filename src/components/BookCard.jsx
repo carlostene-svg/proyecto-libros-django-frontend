@@ -25,7 +25,7 @@ export default function BookCard({ book, onDelete }) {
                     {book.titulo}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Autor ID: {book.autor}
+                    Autor: {book.autor_nombre}
                 </Typography>
             </CardContent>
 
