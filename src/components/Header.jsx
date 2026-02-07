@@ -20,12 +20,10 @@ export default function Header(){
             <AppBar position="static" sx={{ backgroundColor: '#2c3e50' }}>
                 <Toolbar>
                     <div className="image-container">
-                        {/* Aquí usamos tu logo.png */}
                         <img src={logoDigital} alt="Mundo Digital Logo" height={80} />
                     </div>
                 </Toolbar>
                 <Toolbar>
-                    {/* Navegación usando navigate para evitar recargas de página */}
                     <Button color="inherit" onClick={() => navigate('/')}>Autores</Button>
                     <Button color="inherit" onClick={() => navigate('/libros')}>Libros</Button>
                     

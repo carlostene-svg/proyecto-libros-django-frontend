@@ -7,6 +7,8 @@ import BookList from './pages/BookList'
 import BookForm from './pages/BookForm'
 import BookDetail from './pages/BookDetail'
 import LoginPage from './pages/LoginPage'
+import "./services/AuthorService"; 
+import "./services/BookService";
 
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
