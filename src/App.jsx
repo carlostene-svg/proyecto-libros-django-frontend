@@ -7,7 +7,7 @@ import BookList from './pages/BookList'
 import BookForm from './pages/BookForm'
 import BookDetail from './pages/BookDetail'
 import LoginPage from './pages/LoginPage'
-import "./services/AuthorService"; 
+import "./services/AuthorService";
 import "./services/BookService";
 
 import './App.css'
@@ -16,16 +16,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 function App() {
   return (
     <>
+
       <Container>
         <BrowserRouter>
           <Header />
+
+
           <Routes>
             {/* Rutas para Autores */}
             <Route path='/' element={<AuthorList />} />
             <Route path='/add-author' element={<AuthorForm />} />
             <Route path='/edit-author/:id' element={<AuthorForm />} />
             <Route path='/author/:id' element={<AuthorDetail />} />
-            
+
             {/* Rutas para Libros */}
             <Route path="/libros" element={<BookList />} />
             <Route path="/add-book" element={<BookForm />} />
@@ -35,8 +38,10 @@ function App() {
             {/* Login */}
             <Route path='/login' element={<LoginPage />} />
           </Routes>
+
         </BrowserRouter>
       </Container>
+
     </>
   )
 }

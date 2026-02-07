@@ -12,7 +12,7 @@ export default function AuthorForm() {
         nombre: '',
         biografia: '',
         fecha_nacimiento: '',
-        foto: null
+        imagen: null
     });
 
     useEffect(() => {

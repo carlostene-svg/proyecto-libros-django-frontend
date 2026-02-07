@@ -20,7 +20,7 @@ export default function Header(){
             <AppBar position="static" sx={{ backgroundColor: '#2c3e50' }}>
                 <Toolbar>
                     <div className="image-container">
-                        <img src={logoDigital} alt="Mundo Digital Logo" height={80} />
+                        <img src={logoDigital} alt="Logo" height={300} width={500}/>
                     </div>
                 </Toolbar>
                 <Toolbar>
