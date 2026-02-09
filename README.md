@@ -52,11 +52,11 @@ VITE_API_CLIENT_SECRET=tu_client_secret
    ```bash
    npm install @mui/material @emotion/react @emotion/styled
    ```
-5. Instalar Axios (necesario desde Laboratorio 10):
+5. Instalar Axios:
    ```bash
    npm install axios
    ```
-6. Instalar React Router (necesario desde Laboratorio 11):
+6. Instalar React Router:
    ```bash
    npm install react-router-dom
    ```
