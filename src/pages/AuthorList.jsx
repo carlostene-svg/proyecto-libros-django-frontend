@@ -59,9 +59,9 @@ export default function AuthorList() {
         </Stack>
       )}
 
-      <Grid container spacing={2} sx={{ mt: 2 }}>
+      <Grid container spacing={5} sx={{ mt: 2 }}>
         {authors.map((author) => (
-          <Grid key={author.id} item xs={12} sm={6} md={4}>
+          <Grid key={author.id} item xs={12} sm={4} md={3}>
             <AuthorCard author={author} onDelete={handleDelete} />
           </Grid>
         ))}

@@ -10,7 +10,7 @@ export default function AuthorCard({ author, onDelete }) {
     const isLoggedIn = localStorage.getItem("access_token") !== null;
     console.log(author)
     return (
-        <Card sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Card sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column', maxWidth: 301, margin: '0 auto', justifyContent: 'space-between'}}>
             <CardMedia
                 component="img"
                 height={200}
